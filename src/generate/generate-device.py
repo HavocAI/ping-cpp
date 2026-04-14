@@ -40,3 +40,11 @@ f.close()
 f = open("%s/ping-device-ping360.cpp" % args.output_directory, "w")
 f.write(g.generate("%s/ping360.json" % definitionPath, "%s/ping-device-ping360.cpp.in" % templatePath))
 f.close()
+
+# f = open("%s/ping-device-surveyor240.h" % args.output_directory, "w")
+# f.write(g.generate("%s/surveyor240.json" % definitionPath, "%s/ping-device-surveyor240.h.in" % templatePath))
+# f.close()
+
+# f = open("%s/ping-device-surveyor240.cpp" % args.output_directory, "w")
+# f.write(g.generate("%s/surveyor240.json" % definitionPath, "%s/ping-device-surveyor240.cpp.in" % templatePath))
+# f.close()

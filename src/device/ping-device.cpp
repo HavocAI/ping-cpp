@@ -4,8 +4,25 @@
 #include <time/ping-time.h>
 
 #include <cstdio>
+#include <iostream>
 
-bool PingDevice::initialize() { return request(CommonId::PROTOCOL_VERSION) && request(CommonId::DEVICE_INFORMATION); }
+bool PingDevice::initialize() {
+  ping_message* protocol_version_request = request(CommonId::PROTOCOL_VERSION);
+  ping_message* device_information_request = request(CommonId::DEVICE_INFORMATION);
+  if (!protocol_version_request)
+  {
+    std::cout << "no version information" << std::endl;
+  }
+  if (!device_information_request)
+  {
+    std::cout << "no device information" << std::endl;
+  }
+  else
+  {
+    std::cout << static_cast<int>(device_information.device_type) << std::endl;
+  }
+  return device_information_request;
+}
 
 ping_message* PingDevice::read()
 {
@@ -69,6 +86,9 @@ void PingDevice::writeMessage(ping_message& message)
 
 void PingDevice::_handleMessage(const ping_message* message)
 {
+    char message_as_string[1000];
+    message->getMessageAsString(message_as_string, 1000);
+    std::cout << message_as_string << std::endl;
     device_id = message->source_device_id();
 
     switch (message->message_id()) {

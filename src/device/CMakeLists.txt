@@ -8,6 +8,7 @@ add_custom_target(generate-devices
 BYPRODUCTS
     ${CMAKE_CURRENT_SOURCE_DIR}/ping-device-ping360.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ping-device-ping1d.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ping-device-surveyor240.cpp
 )
 
 add_library(
@@ -16,6 +17,7 @@ STATIC
     ping-device-ping1d.cpp
     ping-device-ping360.cpp
     ping-device.cpp
+    ping-device-surveyor240.cpp
 )
 
 include_directories(${HAL_SOURCE_DIR})
