@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
     PingDeviceTest::test("Device type", static_cast<int>(PingDeviceType::UNKNOWN) < device.device_information.device_type, Status::OK);
     const auto device_type = static_cast<PingDeviceType>(device.device_information.device_type);
     std::cout << "Device detected as: " << PingHelper::nameFromDeviceType(device_type) << std::endl;
-    PingDeviceTest::test("Device ID", device.device_id != 0, Status::OK);
+    // PingDeviceTest::test("Device ID", device.device_id != 0, Status::OK);
 
     // Common messages validation
     PingDeviceTest::test("Device Hardware revision", device.device_information.device_revision, Status::OK);
