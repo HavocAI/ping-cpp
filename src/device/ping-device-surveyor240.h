@@ -26,7 +26,7 @@ public:
     /**
      * @brief Destructor
      */
-    ~Surveyor240();
+    virtual ~Surveyor240();
 
     /**
      *  @brief Establish communications with the device, and initialize the update interval
