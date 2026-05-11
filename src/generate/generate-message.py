@@ -39,9 +39,15 @@ for definition in definitions:
 
 # Create message definitions for each sensor
 for definition in definitions:
-    f = open("%s/ping-message-%s.h" % (args.output_directory, definition), "w")
-    f.write(g.generate(mergedJson["global"][definition], templateFile, {"definition": definition}))
-    f.close()
+    if definition in "surveyor240":
+      f = open("%s/ping-message-%s.h" % (args.output_directory, definition), "w")
+      f.write(g.generate(mergedJson["global"][definition], "%s/ping-message-surveyor240.h.in" % templatePath, {"definition": definition}))
+      f.close()
+    else:
+      f = open("%s/ping-message-%s.h" % (args.output_directory, definition), "w")
+      f.write(g.generate(mergedJson["global"][definition], templateFile, {"definition": definition}))
+      f.close()
+      
 
 # Create header with global information
 templateFileAll = "%s/ping-message-all.h.in" % templatePath

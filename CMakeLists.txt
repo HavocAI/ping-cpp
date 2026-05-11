@@ -81,6 +81,24 @@ if (PING_CPP_BUILD_TESTS)
         fmt::fmt
     )
 
+    # test surveyor240
+    add_executable(test-device-surveyor240)
+    target_include_directories(test-device-surveyor240 PRIVATE lib/fmt/include/)
+    target_sources(
+        test-device-surveyor240
+    PRIVATE
+        test/test-device-surveyor240.cpp
+    )
+    target_link_libraries(
+        test-device-surveyor240
+    PRIVATE
+        DEVICE
+        HAL
+        PING_MESSAGES
+        ${Boost_LIBRARIES}
+        fmt::fmt
+    )
+
     # test-message
     add_executable(test-message)
     target_include_directories(test-message PRIVATE lib/fmt/include/)
